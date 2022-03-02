@@ -9,6 +9,8 @@ def parseArguments():
     parser.add_argument("-i", "--inputVideo", help="The input video to be de-duped", type=str, required=True)
     parser.add_argument("-d", "--frameDifference", help="A threshold used for comparing how similar frames are. A higher number means more frames removed", type=int, default=50)
     parser.add_argument("-f", "--fpsOverride", help="Set the fps of the video. If not specified, will use the fps of the input video", type=int)
+    parser.add_argument("-c", "--crop", help="The bounds to crop the image by in the format [leftCrop, topCrop, rightCrop, bottomCrop] in pixels", type=int, nargs="*", default=[0,0,0,0])
+    parser.add_argument("-p", "--preview", help="Preview the frames as they are being generated. (Note this preview is indicative of the cropping, but not the framerate or de-duping properties)", type=bool, default=False)
     arguments = parser.parse_args()
     
-    return (arguments.inputVideo, arguments.frameDifference, arguments.fpsOverride)
+    return (arguments.inputVideo, arguments.frameDifference, arguments.fpsOverride, arguments.crop, arguments.preview)

@@ -4,11 +4,8 @@ from src.args import parseArguments
 from src.progressBar import setProgressBar
 from src.frameHelper import areFramesEqual, cropFrame
 
-# The output file to use
-outputVideo = 'output.avi'
-
 # Get the arguments
-(inputVideo, permittedDifferenceThreshold, fps, crop, preview) = parseArguments()
+(inputVideo, permittedDifferenceThreshold, fps, crop, preview, outputVideo, videoCodec) = parseArguments()
 
 # Ensure that the crop array is correct
 if (len(crop) != 4):
@@ -34,7 +31,7 @@ if (fps is None):
     fps = originalVideo.get(cv2.CAP_PROP_FPS)
 
 # Setup the output file
-out = cv2.VideoWriter(outputVideo, cv2.VideoWriter_fourcc('M','J','P','G'), fps, (width, height))
+out = cv2.VideoWriter(outputVideo, cv2.VideoWriter_fourcc(*videoCodec), fps, (width, height))
 
 previousFrame = np.empty([0,0])
 

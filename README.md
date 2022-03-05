@@ -9,13 +9,15 @@ A simple application for de-duplicating the frames in a video (ignores audio). U
 
 ## ✅ Arguments
 When calling the video de-duper, the following arguments can be used
-|         Argument          	|                   Description                             	                                                                                  |   Type  	| Required 	| Default 	|
-|:---------------------------:	|:----------------------------------------------------------------------------------------------------------------------------------------------: |:-------:	|:--------:	|:-------:	|
-| `--inputVideo` (`i`)      	|      The input video to be de-duped                          	                                                                                  |  String 	|     Y    	|   N/A   	|
-| `--frameDifference` (`-d`)  	| A threshold used for comparing how similar frames are. A higher number means more frames removed                                                |   Int   	|     N    	|   50   	|
-|  `--fpsOverride` (`-f`)  	    |Set the fps of the video. If not specified, will use the fps of the input video                                                                  |   Int    	|     N    	|   N/A  	|
-|  `--crop` (`-c`)       	    |The bounds to crop the image by in the format `leftCrop, topCrop, rightCrop, bottomCrop` in pixels                                               |   Int[]  	|     N    	| `0 0 0 0` |
-|  `--preview` (`-p`)  	        |Preview the frames as they are being generated. (Note this preview is indicative of the cropping, but not the framerate or de-duping properties) |   Bool    	|     N    	|   False  	|
+|         Argument          	|                   Description                             	                                                                                  |   Type  	| Required 	| Default 	    |
+|:---------------------------:	|:----------------------------------------------------------------------------------------------------------------------------------------------: |:-------:	|:--------:	|:-------:	    |
+| `--inputVideo` (`-i`)      	|      The input video to be de-duped                          	                                                                                  |  String 	|     Y    	|   N/A   	    |
+| `--outputVideo` (`-o`)      	|      The output video file                                 	                                                                                  |  String 	|     N    	|`output.avi` 	|
+| `--frameDifference` (`-d`)  	| A threshold used for comparing how similar frames are. A higher number means more frames removed                                                |   Int   	|     N    	|   50   	    |
+|  `--fpsOverride` (`-f`)  	    |Set the fps of the video. If not specified, will use the fps of the input video                                                                  |   Int    	|     N    	|   N/A  	    |
+|  `--crop` (`-c`)       	    |The bounds to crop the image by in the format `leftCrop, topCrop, rightCrop, bottomCrop` in pixels                                               |   Int[]  	|     N    	| `0 0 0 0`     |
+|  `--preview` (`-p`)  	        |Preview the frames as they are being generated. (Note this preview is indicative of the cropping, but not the framerate or de-duping properties) |   Bool    	|     N    	|   False  	    |
+|  `--videoCodec` (`-v`)  	    |The FourCC abbreviation video codec to use                                                                                                       |  String    	|     N    	|   `MJPG` 	    |
 
 ## Local Dev
 1. Install the python dependencies in `requirements.txt`
